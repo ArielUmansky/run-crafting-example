@@ -14,7 +14,7 @@ class InventoryItem extends Run.Jig {
     }
 
     decreaseQuantity(quantity){
-        //TODO: Add validation
+        if(quantity > this.quantity) throw new Error(InventoryItem.NOT_ENOUGH_QUANTITY_ERROR_MESSAGE);
         this.quantity = this.quantity - quantity;
     }
 
