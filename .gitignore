@@ -105,3 +105,6 @@ dist
 
 # Run cache files
 .runcache/
+
+# Idea files
+.idea/
