@@ -4,7 +4,7 @@ const {Item} = require("./item");
 
 
 class Recipe extends Run.Jig {
-    static USER_DOES_NOT_COMPLY_WITH_RECIPE_SPECS_ERROR_MESSAGE = 'there was an error';
+    static USER_DOES_NOT_COMPLY_WITH_RECIPE_SPECS_ERROR_MESSAGE = 'The user does not have the specified recipe ingredients';
 
     init() {
         this.ingredients = [];

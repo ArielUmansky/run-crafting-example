@@ -2,6 +2,7 @@ const Run = require('run-sdk')
 
 // Does it make sense for this to be a Jig?
 class InventoryItem extends Run.Jig {
+    static NOT_ENOUGH_QUANTITY_ERROR_MESSAGE = 'There is not enough quantity';
 
     init(item, quantity, owner) {
         this.owner = owner
