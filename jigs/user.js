@@ -7,9 +7,7 @@ class User extends Run.Jig {
     }
 
     addItem(inventoryItem) {
-        if(inventoryItem.owner !== this.owner) {
-            throw new Error('There was an error')
-        }
+        this._validateInventoryItemOwnership(inventoryItem);
         this.inventory.push(inventoryItem);
     }
 
@@ -31,6 +29,12 @@ class User extends Run.Jig {
 
     getInventoryItemByType(itemType) {
         return this.inventory.find(inventoryItem => inventoryItem.item.typeId === itemType);
+    }
+
+    _validateInventoryItemOwnership(inventoryItem) {
+        if (inventoryItem.owner !== this.owner) {
+            throw new Error('There was an error')
+        }
     }
 
 }
