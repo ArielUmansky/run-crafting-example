@@ -79,6 +79,9 @@ describe('Item', () => {
                 beforeEach(async () => {
                     user = new User();
                     await user.sync();
+                    const anotherUserAddress = bsv.PrivateKey.fromRandom().toAddress().toString();
+                    user.send(anotherUserAddress);
+                    await user.sync();
 
                     ingredient = new Ingredient(typeId, ingredientQuantity);
                     anotherIngredient = new Ingredient(anotherTypeId, anotherIngredientQuantity);
@@ -93,6 +96,15 @@ describe('Item', () => {
 
                     userInventoryItem = new InventoryItem(ingredientItem, ingredientQuantity)
                     anotherUserInventoryItem = new InventoryItem(anotherIngredientItem, anotherIngredientQuantity)
+                    await userInventoryItem.sync();
+                    await anotherUserInventoryItem.sync();
+
+                    ingredientItem.send(anotherUserAddress);
+                    anotherIngredientItem.send(anotherUserAddress);
+                    userInventoryItem.send(anotherUserAddress);
+                    anotherUserInventoryItem.send(anotherUserAddress);
+                    await ingredientItem.sync();
+                    await anotherIngredientItem.sync();
                     await userInventoryItem.sync();
                     await anotherUserInventoryItem.sync();
 

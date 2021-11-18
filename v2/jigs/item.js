@@ -16,6 +16,10 @@ class Item extends Run.Jig {
         if (!ingredients.every(ingredient => user.hasEnough(ingredient))) throw new Error(Item.USER_DOES_NOT_MEET_INGREDIENTS_REQUIREMENTS_ERROR_MESSAGE)
     }
 
+    send(to){
+        this.owner = to;
+    }
+
 }
 
 module.exports = { Item }

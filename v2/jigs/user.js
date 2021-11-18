@@ -32,6 +32,10 @@ class User extends Run.Jig {
         return this.hasEnough(new Ingredient(itemType, 1));
     }
 
+    send(to){
+        this.owner = to;
+    }
+
     getInventory() {
         return this.inventory;
     }
